@@ -18,16 +18,72 @@ public class OrderQueue<T> implements Queue{
         this.queueSize=queuesize;
     }
 
-    public void enqueue(CustomerOrder order){
+    public void enqueue(int num){
+        order=new CustomerOrder(num);
         if (head==null){
             head= tail= new LinkedNode<T>(order);
-            size=1;
+            queueSizesize=1;
         }
-
-    public OrderQueue<T> addQueue(int quan){
-         new CustomerOrder(quan);
-         return ;
+        else{
+            tail.next= new LinkedNode<T>(order);
+            tail=tail.next;
+            queueSizesize++;
+        }
     }
+
+    public CustomerOrder dequeue(){
+        if (head ==null){
+            return null;
+        }
+        else if (head==tail){
+            LinkedNode<T> temp= head;
+            stock--;
+            head.ship();
+            if (head.quantity==0){
+                head=head.next;
+                tail=null;
+            }
+            return temp;
+        }
+        else{
+            LinkedNode<T> temp= head;
+            stock--;
+            head.ship();
+            if (head.quantity==0){
+                head=head.next;
+        }
+        return temp;
+    }
+
+    public CustomerOrder massDequeue(){
+        while (head!=null or stock!=0){
+        // if (head ==null){
+        //     return null;
+        // }
+            else if (head==tail){
+                LinkedNode<T> temp= head;
+                stock--;
+                head.ship();
+                if (head.quantity==0){
+                    head=head.next;
+                    tail=null;
+                }
+                return temp;
+            }
+            else{
+                LinkedNode<T> temp= head;
+                stock--;
+                head.ship();
+                if (head.quantity==0){
+                    head=head.next;
+            }
+            return temp;
+    }
+    }
+    // public OrderQueue<T> addQueue(int quan){
+    //      new CustomerOrder(quan);
+    //      return ;
+    // }
 
     public void addStock(int num){
         this.stock+=num;
@@ -35,8 +91,7 @@ public class OrderQueue<T> implements Queue{
 
 
     public String toString(){
-        return "the quantity of orders the customer at the front of the que has is: " + front;
+        return "the quantity of orders the customer at the front of the que has is: " + head.quantity;
     }
 
-}
 }
