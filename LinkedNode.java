@@ -1,4 +1,3 @@
-
 public class LinkedNode<T> {
 	public T element;
 	public LinkedNode<T> next;
@@ -22,11 +21,6 @@ public class LinkedNode<T> {
 
 	public void setNext(LinkedNode<T> next) {
 		this.next = next;
-	}
-
-	@Override
-	public String toString() {
-		return "LinkedNode [element=" + element + ", next=" + next + "]";
 	}
 
 	
