@@ -54,12 +54,13 @@ public class OrderQueue<T> implements Queue{
         }
         return temp;
     }
+}
 
     public CustomerOrder massDequeue(){
         while (head!=null or stock!=0){
-        // if (head ==null){
-        //     return null;
-        // }
+            if (head ==null){
+                return null;
+            }
             else if (head==tail){
                 LinkedNode<T> temp= head;
                 stock--;
@@ -80,6 +81,7 @@ public class OrderQueue<T> implements Queue{
             return temp;
     }
     }
+}
     // public OrderQueue<T> addQueue(int quan){
     //      new CustomerOrder(quan);
     //      return ;
@@ -95,3 +97,4 @@ public class OrderQueue<T> implements Queue{
     }
 
 }
+    
