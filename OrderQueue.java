@@ -7,8 +7,8 @@ public class OrderQueue<T> implements Queue{
     public int queueSize;
     
     public OrderQueue(){
-        head=0;
-        tail=0;
+        head=null;
+        tail=null;
         stock=0;
         queueSize=0;
     }
@@ -19,15 +19,15 @@ public class OrderQueue<T> implements Queue{
     }
 
     public void enqueue(int num){
-        order=new CustomerOrder(num);
+        CustomerOrder order = new CustomerOrder(num);
         if (head==null){
             head= tail= new LinkedNode<T>(order);
-            queueSizesize=1;
+            queueSize=1;
         }
         else{
             tail.next= new LinkedNode<T>(order);
             tail=tail.next;
-            queueSizesize++;
+            queueSize++;
         }
     }
 
